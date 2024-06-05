@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.component.scss"> <!-- Підключаємо стилі -->
+</head>
+<body>
+   <div class="header">
+    <img class="logo" src="assets/logoo.png" alt="Logo" (click)="toggleUsers()">    <!-- Зображення логотипу -->
+    <div class="search">
+        <input type="text" placeholder="Search by name" [(ngModel)]="searchTerm">
+        <button (click)="searchUser()">
+            Search
+        </button>
+    </div>
+</div>
+
+<ul class="users-table">
+    <ng-container *ngIf="filteredUsers.length > 0"> <!-- Перевіряємо, чи є відфільтровані користувачі -->
+        <li class="user-item" *ngFor="let user of filteredUsers">
+            <h3>Name: {{user.name}}</h3>
+            <p>Producer: {{user.producer}}, Generation: {{user.generation}}</p>
+        </li>
+    </ng-container>
+    <ng-container *ngIf="filteredUsers.length === 0 && searchTerm !== ''"> <!-- Перевіряємо, чи немає результатів пошуку -->
+        <p>No consoles found.</p>
+    </ng-container>
+    <ng-container *ngIf="showUsers && filteredUsers.length === 0"> <!-- Перевіряємо, чи показувати всіх користувачів, якщо вони нефільтровані -->
+        <li class="user-item" *ngFor="let user of users">
+            <h3>Name: {{user.name}}</h3>
+            <p>Producer: {{user.producer}}, Generation: {{user.generation}}</p>
+        </li>
+    </ng-container>
+</ul>
+
+</body>
+</html>
