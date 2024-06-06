@@ -1,0 +1,28 @@
+<div *ngIf="isOpen" class="modal">
+  <div class="modal-content">
+    <h2 *ngIf="user._links">Редагувати користувача</h2>
+    <h2 *ngIf="!user._links">Створити користувача</h2>
+
+    <label>
+      Name:
+      <input [(ngModel)]="user.name" placeholder="Name">
+    </label>
+    <label>
+      Producer:
+      <input [(ngModel)]="user.producer" placeholder="Producer">
+    </label>
+    <label>
+      Image URL:
+      <input [(ngModel)]="user.imageUrl" placeholder="Image URL">
+    </label>
+    <label>
+      Generation:
+      <input [(ngModel)]="user.generation" placeholder="Generation" type="number">
+    </label>
+    <div class="buttons">
+      <button (click)="saveUser()">Save</button>
+      <button (click)="closeMenu()">Cancel</button>
+      <button *ngIf="user._links" (click)="deleteUser()">Delete</button>
+    </div>
+  </div>
+</div>

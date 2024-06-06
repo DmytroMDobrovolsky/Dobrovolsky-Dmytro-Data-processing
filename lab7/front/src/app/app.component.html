@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.component.scss" > <!-- Підключаємо стилі -->
+</head>
+<body>
+    <div class="header">
+        <img class="img" src="https://st3.depositphotos.com/22291264/36134/v/450/depositphotos_361346394-stock-illustration-game-apparel-design.jpg" alt="Logo" (click)="toggleUsers()">
+        
+        <div class="search">
+          <input type="text" placeholder="Search by name" [(ngModel)]="searchTerm">
+          <button (click)="searchUser()">Search</button>
+        </div>
+        <button (click)="createUser() ">Створити користувача</button>
+      </div>
+      
+      <ul class="users-table">
+        <ng-container *ngIf="filteredUsers.length > 0">
+          <li class="user-item" *ngFor="let user of filteredUsers" (click)="selectUser(user)">
+            <p><img [src]="user.imageUrl" alt="User Image"></p>
+            <h3>Name: {{user.name}}</h3>
+            <p>Producer: {{user.producer}}, Generation: {{user.generation}}</p>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="filteredUsers.length === 0 && searchTerm !== ''">
+          <p>No consoles found.</p>
+        </ng-container>
+        <ng-container *ngIf="showUsers && filteredUsers.length === 0">
+          <li class="user-item" *ngFor="let user of users" (click)="selectUser(user)">
+            <p><img [src]="user.imageUrl" alt="User Image"></p>
+            <h3>Name: {{user.name}}</h3>
+            <p>Producer: {{user.producer}}, Generation: {{user.generation}}</p>
+          </li>
+        </ng-container>
+      </ul>
+      
+
+      <app-user-crud-menu
+      *ngIf="selectedUser"
+      [user]="selectedUser"
+      [isOpen]="isCrudMenuOpen"
+      (close)="closeCrudMenu()"
+    ></app-user-crud-menu>
+    
+    
+</body>
+</html>
