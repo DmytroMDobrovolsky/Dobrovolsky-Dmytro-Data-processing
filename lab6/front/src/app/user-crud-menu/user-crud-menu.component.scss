@@ -1,0 +1,78 @@
+/* Основний стиль для модального вікна */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px); /* Додаємо ефект блюру */
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Забезпечуємо, щоб модальне вікно було над іншими елементами */
+}
+
+/* Стиль для вмісту модального вікна */
+.modal-content {
+  width: 400px; /* Фіксована ширина для прямокутної форми */
+  background-color: #dddada;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px; /* Збільшено паддінг для кращого вигляду */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Додаємо тінь для об'ємності */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Стиль для заголовка в модальному вікні */
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px; /* Додаємо відступ знизу */
+  font-size: 24px; /* Збільшено розмір шрифту */
+  text-align: center; /* Центруємо текст */
+}
+
+/* Стиль для міток та інпутів */
+.modal-content label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+  width: 100%; /* Додаємо ширину */
+}
+
+.modal-content input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Стиль для кнопок */
+.modal-content .buttons {
+  display: flex;
+  justify-content: space-between; /* Вирівнюємо кнопки по ширині */
+  margin-top: 20px;
+}
+
+.modal-content .buttons button {
+  flex: 1; /* Кнопки займають рівну ширину */
+  padding: 12px 20px;
+  margin: 0 10px; /* Відступ між кнопками */
+  background-color: #fff;
+  color: #2b3f94;
+  border: 1px solid #2b3f94; /* Додаємо рамку кнопкам */
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center; /* Центруємо текст всередині кнопок */
+  text-decoration: none; /* Забираємо підкреслення тексту */
+  font-size: 18px; /* Збільшено розмір шрифту */
+}
+
+/* Ефект при наведенні на кнопку */
+.modal-content .buttons button:hover {
+  background-color: #2b3f94; /* Змінюємо колір фону при наведенні */
+  color: #fff; /* Змінюємо колір тексту при наведенні */
+}

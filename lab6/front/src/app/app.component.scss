@@ -1,0 +1,86 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* відступи */
+    
+
+}
+* {
+    font-family: 'Comic Sans', sans-serif;
+}
+.header:before {
+    content: ""; /* Додаємо псевдоелемент для заднього фону */
+    position: fixed; /* фіксоване позиціонування відносно відносно батьківського контейнера */
+    top: 0; /* Розміщуємо псевдоелемент зверху */
+    left: 0; /* Розміщуємо псевдоелемент зліва */
+    width: 100%; /* Ширина псевдоелемента повна ширина батьківського контейнера */
+    height: 100%; /* Висота псевдоелемента повна висота батьківського контейнера */
+    background-color:  #4e93cc; /* Додайте ваш шлях до зображення */
+    opacity: 0.5; /* Прозорість зображення (можна змінити за потребою) */
+    z-index: -1; /* Встановлюємо позаду іншого контенту */
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search input[type="text"] {
+    margin-right: 5px; /*  відступ між полем пошуку і кнопкою пошуку */
+}
+.header {
+    display: flex; /* Встановлюємо flexbox для розташування елементів у рядок */
+    align-items: center; /* Вирівнюємо елементи по вертикалі по центру */
+    background-color: #000000; /* Колір фону */
+    padding: 10px; /* Відступи від країв контейнера */
+}
+
+/* Стилі для зображення логотипу */
+.header img {
+    width: 100px; /* Ширина зображення */
+    height: auto; /* Автоматична висота для збереження пропорцій */
+    margin-right: 10px; /* Відступ між зображенням та кнопкою */
+}
+
+/* Стилі для кнопки */
+.header button {
+    padding: 12px 20px; /* Розмір кнопки */
+    background-color: #fff; /* Колір фону кнопки */
+    color: #2b3f94; /* Колір тексту кнопки */
+    border: none; /* Видаляємо рамку */
+    border-radius: 5px; /* Закруглені кути кнопки */
+    cursor: pointer; /* Змінюємо курсор при наведенні на кнопку */
+}
+
+.header button:hover {
+    background-color: #c55819da; /*  колір фону при наведенні */
+}
+.users-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-item {
+    width: calc(33.33% - 20px); /* По три користувачі на рядок з відступом 20px */
+    margin-bottom: 20px;
+    background-color: #dddada;
+    border: 1px solid #000000; /*  рамка для кращого видимого відокремлення */
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.user-item p {
+    margin: 0;
+}
+
+.user-item h3 {
+    margin-top: 0;
+}
+
+  
+  
